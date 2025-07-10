@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utkarsh Pandey - Blockchain Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0F0F23 0%, #1A1A2E 50%, #16213E 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00D4FF, #9D4EDD);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #00D4FF;
+            transform: translateY(-2px);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(45deg, #00D4FF, #9D4EDD);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00D4FF, #9D4EDD, #FF6B6B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease-in-out infinite;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #B0B0B0;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: #A0A0A0;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00D4FF, #9D4EDD);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00D4FF;
+            border: 2px solid #00D4FF;
+        }
+
+        .btn-secondary:hover {
+            background: #00D4FF;
+            color: #0F0F23;
+            transform: translateY(-3px);
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 80%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            left: 10%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            top: 80%;
+            right: 20%;
+            animation-delay: 4s;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #00D4FF, #9D4EDD);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Experience Section */
+        .experience-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00D4FF;
+        }
+
+        .position {
+            font-size: 1.2rem;
+            color: #9D4EDD;
+            margin-bottom: 0.5rem;
+        }
+
+        .location {
+            color: #B0B0B0;
+            font-size: 0.9rem;
+        }
+
+        .description {
+            color: #A0A0A0;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .achievements-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements-list li {
+            color: #B0B0B0;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .achievements-list li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #00D4FF;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(157, 78, 221, 0.2);
+            border-color: rgba(157, 78, 221, 0.3);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #9D4EDD;
+            margin-bottom: 1rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            color: #00D4FF;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #ffffff;
+            transform: translateX(5px);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(45deg, #00D4FF, #9D4EDD);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2);
+            border-color: rgba(255, 107, 107, 0.3);
+        }
+
+        .skill-category h3 {
+            color: #FF6B6B;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(255, 107, 107, 0.2);
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            color: #ffffff;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(15, 15, 35, 0.95);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .fade-in {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Utkarsh Pandey</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Blockchain Developer</h1>
+                <p class="hero-subtitle">Building the Future of Decentralized Applications</p>
+                <p class="hero-description">
+                    Founding Software Engineer with expertise in blockchain technology, smart contracts, and decentralized systems. 
+                    Passionate about creating innovative solutions that bridge traditional finance with crypto ecosystems.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+        <div class="floating-element">🚀</div>
+        <div class="floating-element">⚡</div>
+        <div class="floating-element">🔗</div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="experience-card">
+                <div class="company-header">
+                    <div>
+                        <h3 class="company-name">Vaam</h3>
+                        <p class="position">Software Engineer (Founding)</p>
+                        <p class="location">Wallington, England (Remote)</p>
+                    </div>
+                </div>
+                <p class="description">
+                    A next-gen subscription-based ride-hailing startup, backed by $5M in funding, uses AI agents to deliver seamless, intelligent, and efficient mobility.
+                </p>
+                <ul class="achievements-list">
+                    <li>Designed and developed rider and driver applications from scratch, ensuring a seamless end-to-end ride-booking experience</li>
+                    <li>Integrated FastAPI backend to handle dynamic ride price calculations based on distance, time, and surge factors</li>
+                    <li>Utilized Firebase Realtime Database to enable real-time communication and synchronization between riders and drivers</li>
+                    <li>Built driver matching algorithm for quick filtering of best driver</li>
+                    <li>Shifted the database from Supabase to Firebase for improved performance</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="company-header">
+                    <div>
+                        <h3 class="company-name">SPIDER R&D</h3>
+                        <p class="position">Application and Blockchain Developer</p>
+                        <p class="location">NIT Trichy (Official R&D Club)</p>
+                    </div>
+                </div>
+                <ul class="achievements-list">
+                    <li>Recognition at Radar Colosseum Hackathon (World's largest Blockchain hackathon)</li>
+                    <li>Winner at Hackbanglore'23 Hackathon</li>
+                    <li>Runner-up at Transfinite'24 hackathon</li>
+                    <li>Proposed Quantum-based crypto wallet at MIT hack-quest for private key management</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3 class="project-title">Snipper-mil (Two-Tier Architecture)</h3>
+                    <div class="project-links">
+                        <a href="https://github.com/Utkarshpandey0001/gmgn-sniper.git" class="project-link">Tier-1 Repository →</a>
+                        <a href="https://github.com/Utkarshpandey0001/Snipper_mill.git" class="project-link">Tier-2 Repository →</a>
+                    </div>
+                    <p class="description">
+                        Advanced automated token sniping system for Solana blockchain with real-time detection and trading capabilities. 
+                        Features visual automation, async scraping, and Jupiter Aggregator integration for optimal trade execution.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Playwright</span>
+                        <span class="tech-tag">Solana</span>
+                        <span class="tech-tag">AsyncIO</span>
+                        <span class="tech-tag">Jupiter API</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">VaultX - DeFi Platform</h3>
+                    <div class="project-links">
+                        <a href="https://github.com/Utkarshpandey0001/3rdWebmarket.git" class="project-link">Repository →</a>
+                        <a href="https://3rd-webmarket.vercel.app" class="project-link">Live Demo →</a>
+                    </div>
+                    <p class="description">
+                        Comprehensive DeFi platform built on Ethereum with crypto swap functionality, NFT lending system, 
+                        marketplace integration, and innovative QR-based payment solutions.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Solidity</span>
+                        <span class="tech-tag">Ethereum</span>
+                        <span class="tech-tag">Thirdweb</span>
+                        <span class="tech-tag">Wagmi</span>
+                        <span class="tech-tag">TanStack</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3 class="project-title">Decentralized Labeling Platform</h3>
+                    <div class="project-links">
+                        <a href="https://github.com/Utkarshpandey0001/decentral-labeling-platform.git" class="project-link">Repository →</a>
+                    </div>
+                    <p class="description">
+                        Multi-chain platform where users can upload tasks with bounties in Ethereum or Solana. 
+                        Workers complete verification tasks and get paid directly from user wallets upon completion.
+                    </p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Ethereum</span>
+                        <span class="tech-tag">Solana</span>
+                        <span class="tech-tag">Smart Contracts</span>
+                        <span class="tech-tag">Web3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">C++</span>
+                        <span class="skill-item">TypeScript</span>
+                        <span class="skill-item">JavaScript</span>
+                        <span class="skill-item">Rust</span>
+                        <span class="skill-item">Solidity</span>
+                        <span class="skill-item">Python</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Blockchain & Web3</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Ethereum</span>
+                        <span class="skill-item">Solana</span>
+                        <span class="skill-item">Smart Contracts</span>
+                        <span class="skill-item">DeFi</span>
+                        <span class="skill-item">NFTs</span>
+                        <span class="skill-item">Web3</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Next.js</span>
+                        <span class="skill-item">React</span>
+                        <span class="skill-item">TypeScript</span>
+                        <span class="skill-item">Wagmi</span>
+                        <span class="skill-item">TanStack</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Backend & Database</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">FastAPI</span>
+                        <span class="skill-item">Prisma</span>
+                        <span class="skill-item">PostgreSQL</span>
+                        <span class="skill-item">Firebase</span>
+                        <span class="skill-item">Redis</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">NLP</span>
+                        <span class="skill-item">GenAI</span>
+                        <span class="skill-item">RAG Architecture</span>
+                        <span class="skill-item">TensorFlow</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>DevOps & Cloud</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Docker</span>
+                        <span class="skill-item">AWS</span>
+                        <span class="skill-item">WebSocket</span>
+                        <span class="skill-item">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <p class="description">
+                    Ready to build the future together? Let's discuss your next blockchain project or explore opportunities to collaborate.
+                </p>
+                <div class="contact-info">
+                    <a href="mailto:utkarsh@example.com" class="contact-item">
+                        <h4>Email</h4>
+                        <p>utkarsh@example.com</p>
+                    </a>
+                    <a href="https://linkedin.com/in/utkarshpandey" class="contact-item">
+                        <h4>LinkedIn</h4>
+                        <p>Connect with me</p>
+                    </a>
+                    <a href="https://github.com/Utkarshpandey0001" class="contact-item">
+                        <h4>GitHub</h4>
+                        <p>View my code</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Utkarsh Pandey. Built with passion for blockchain technology.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Observe cards
+        document.querySelectorAll('.experience-card, .project-card, .skill-category').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.floating-element');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.2);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Dynamic gradient animation
+        const heroTitle = document.querySelector('.hero-title');
+        if (heroTitle) {
+            heroTitle.style.backgroundSize = '200% 200%';
+        }
+
+        // Card hover effects
+        document.querySelectorAll('.project-card, .experience-card, .skill-category').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Typing effect for hero subtitle
+        const subtitle = document.querySelector('.hero-subtitle');
+        const originalText = subtitle.textContent;
+        subtitle.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < originalText.length) {
+                subtitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        setTimeout(typeWriter, 1000);
+    </script>
+</body>
+</html>
