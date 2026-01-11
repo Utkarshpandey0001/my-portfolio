@@ -30,12 +30,12 @@ export const SOCIALS = [
 ];
 
 export const SKILLS = {
-  languages: ["JavaScript", "TypeScript", "Go", "Solidity", "Move (Cedra)", "SQL"],
+  languages: ["JavaScript", "TypeScript", "C++", "Solidity", "Rust","Python"],
   frontend: ["Next.js", "React", "React Native", "Tailwind CSS", "Redux", "Framer Motion"],
   backend: ["Node.js", "Express.js", "Firebase (Functions/DB)", "Supabase", "PostgreSQL", "MongoDB", "Redis"],
   devops: ["Docker", "Kubernetes (K8s)", "AWS (S3, EC2, ASG)", "Turborepo", "CI/CD", "GitHub Actions"],
-  web3: ["Ethereum", "Solana (Jupiter API)", "Hedera", "IPFS", "Wagmi", "Thirdweb"],
-  ai_ml: ["RAG Architecture", "Vector Search", "Google Gemini API", "Fal.ai API", "AI Agents"],
+  web3: ["Ethereum", "Solana", "Deffi", "IPFS", "Wagmi", "Thirdweb","Foundry"],
+  ai_ml: ["RAG Architecture", "Vector Search", "AI Agents", "MCP"],
 };
 
 export const EXPERIENCE = [

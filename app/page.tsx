@@ -25,7 +25,7 @@ export default function Home() {
         >
           <div className="space-y-2">
             <h2 className="text-xl text-muted-foreground font-medium tracking-wide">Hello, I'm</h2>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-500 pb-2">
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-white pb-2">
               Utkarsh Raj.
             </h1>
           </div>
@@ -202,7 +202,6 @@ export default function Home() {
 
          {/* FOOTER */}
          <motion.footer initial="hidden" whileInView="visible" variants={sectionVariants} className="text-center text-muted-foreground py-8 border-t border-zinc-800 font-mono text-sm">
-            <p>Built with Next.js, Tailwind CSS, Shadcn UI & Framer Motion.</p>
             <p className="mt-2">© {new Date().getFullYear()} Utkarsh Raj. All Rights Reserved.</p>
          </motion.footer>
       </div>
