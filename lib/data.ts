@@ -31,7 +31,7 @@ export const SOCIALS = [
 
 export const SKILLS = {
   languages: ["JavaScript", "TypeScript", "C++", "Solidity", "Rust","Python"],
-  frontend: ["Next.js", "React", "React Native", "Tailwind CSS", "Redux", "Framer Motion"],
+  frontend: ["Next.js", "React", "React Native", "Tailwind CSS", "Zustand", "Shadcn"],
   backend: ["Node.js", "Express.js", "Firebase (Functions/DB)", "Supabase", "PostgreSQL", "MongoDB", "Redis"],
   devops: ["Docker", "Kubernetes (K8s)", "AWS (S3, EC2, ASG)", "Turborepo", "CI/CD", "GitHub Actions"],
   web3: ["Ethereum", "Solana", "Deffi", "IPFS", "Wagmi", "Thirdweb","Foundry"],
@@ -44,7 +44,7 @@ export const EXPERIENCE = [
     role: "Founding Software Engineer",
     duration: "October 2025 - Present",
     link: "https://ridevaam.com/",
-    repo: "https://github.com/utkarshraj0001", // Your work repo link
+    repo: "https://github.com/utkarshraj0001", 
     description:
       "Spearheaded the development of the rider and driver mobile applications using React Native as a Founding Engineer. Architected complex real-time features using Firebase, including custom hooks for trip handling, precise ETA calculation, and intelligent driver matching algorithms. Implemented dynamic pricing logic influenced by weather, traffic, and timing variables. Integrated Stripe payment gateway via Firebase Functions for auto-scaling capability. Executed a complete database migration from Supabase to Firebase and deployed AI agents for automated messaging and scheduling.",
   },
